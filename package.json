@@ -1,0 +1,88 @@
+{
+  "name": "pump-pill-arena-showcase",
+  "version": "1.0.0",
+  "description": "A sophisticated gamified trading rewards platform demonstrating advanced full-stack Web3 development",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "contracts",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean",
+    "db:migrate": "cd backend && pnpm prisma migrate deploy",
+    "db:seed": "cd backend && pnpm prisma db seed",
+    "db:studio": "cd backend && pnpm prisma studio",
+    "contracts:build": "cd contracts && anchor build",
+    "contracts:test": "cd contracts && anchor test",
+    "contracts:deploy": "cd contracts && anchor deploy",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "turbo": "^1.11.0",
+    "typescript": "^5.3.0",
+    "prettier": "^3.1.0",
+    "eslint": "^8.55.0",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.12.0",
+  "keywords": [
+    "web3",
+    "solana",
+    "trading",
+    "gamification",
+    "defi",
+    "blockchain",
+    "nextjs",
+    "typescript",
+    "rust",
+    "anchor"
+  ],
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "url": "https://github.com/yourusername"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/pump-pill-arena-showcase.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/pump-pill-arena-showcase/issues"
+  },
+  "homepage": "https://github.com/yourusername/pump-pill-arena-showcase#readme",
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "pnpm type-check && pnpm test"
+    }
+  }
+}
